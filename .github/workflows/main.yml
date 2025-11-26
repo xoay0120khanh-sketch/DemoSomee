@@ -1,0 +1,23 @@
+name: Deploy to somee via FTP
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: bedau.somee.com
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: './'                        # thư mục bạn muốn upload
+          server-dir: '/www.bedau.somee.com/'    # QUAN TRỌNG: path somee yêu cầu
