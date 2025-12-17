@@ -19,5 +19,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD_HD }}
           port: 21
           protocol: ftp
-          local-dir: './BE/'                        # thư mục bạn muốn upload
+          local-dir: './'                        # thư mục bạn muốn upload
           server-dir: '/www.duongpro.somee.com/'
